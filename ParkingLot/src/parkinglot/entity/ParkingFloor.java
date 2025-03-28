@@ -2,6 +2,8 @@ package parkinglot.entity;
 
 import parkinglot.emum.VehicleType;
 
+import java.util.*;
+
 import static parkinglot.utils.Constants.NUMBER_OF_PARKING_SLOTS_IN_FLOOR;
 
 public class ParkingFloor {
@@ -38,5 +40,22 @@ public class ParkingFloor {
 
     public ParkingSlot getParkingSlot(int index) {
         return this.parkingSlots[index];
+    }
+
+    // Method to get all empty slots of the floor for each vehicle type.
+    public Map<VehicleType, List<Integer>> getAllEmptySlots() {
+        Map<VehicleType, List<Integer>> emptySlots = new HashMap<>();
+        Arrays.stream(this.parkingSlots).forEach(parkingSlot -> {
+            if(parkingSlot.checkAvailability()) {
+                if(emptySlots.containsKey(parkingSlot.getVehicleType())) {
+                    emptySlots.get(parkingSlot.getVehicleType()).add(parkingSlot.getId());
+                }else {
+                    emptySlots.put(parkingSlot.getVehicleType(), new ArrayList<>());
+                    emptySlots.get(parkingSlot.getVehicleType()).add(parkingSlot.getId());
+                }
+            }
+        });
+
+        return emptySlots;
     }
 }
