@@ -78,4 +78,8 @@ public class DoctorRepository {
         }
         tempSlot.setAvailable(true);
     }
+
+    public boolean isDoctorRegistered(Integer doctorId) {
+        return doctors.containsKey(doctorId);
+    }
 }
