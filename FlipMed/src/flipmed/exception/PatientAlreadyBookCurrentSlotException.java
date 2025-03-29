@@ -1,4 +1,4 @@
 package flipmed.exception;
 
-public class PatientAlreadyBookCurrentSlotException {
+public class PatientAlreadyBookCurrentSlotException extends RuntimeException{
 }
