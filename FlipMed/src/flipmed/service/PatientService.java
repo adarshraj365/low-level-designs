@@ -12,6 +12,6 @@ public class PatientService {
 
     public void registerPatient(Patient patient) {
         patientRepository.registerPatient(patient);
-        System.out.println(patient.getId() + " registered successfully !");
+        System.out.println(patient.getName() + " registered successfully !");
     }
 }
