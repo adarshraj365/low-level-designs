@@ -23,3 +23,4 @@ for LLD and machine coding round.
 14. Design Chess Game
 15. Design Online Stock Brokerage System
 16. Design Doctor booking system [✅]
+17. Design a distributed cache system [✅]
